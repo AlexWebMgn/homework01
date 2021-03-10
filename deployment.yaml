@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: homework01-deployment
+spec:
+    replicas: 2
+    selector:
+       matchLabels:
+          app: homework01-app
+    template:
+       metadata:
+          labels:
+             app: homework01-app
+       spec:
+          containers:
+          - name: homework01
+            image: alexkh1985/work01:latest
+            ports:
+              - name: web 
+                containerPort: 80
